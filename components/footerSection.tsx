@@ -11,10 +11,14 @@ export default function FooterSection() {
       {/* Copyright Section */}
         <Text style={styles.copyright}>© 2025 Tea Ceremony Workshop</Text>
 
+    <View style={{flex:1}} />
+
       {/* Contact Section */}
         <TouchableOpacity onPress={() => Linking.openURL("mailto:humlelu@gmail.com")}>
           <Text style={styles.contact}>Kontakta mig för mer information</Text>
         </TouchableOpacity>
+
+    <View style={{flex:1}} />
 
       {/* Social Media Section */}
         <TouchableOpacity
@@ -30,7 +34,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row", 
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-around", // Ensures that the elements are evenly spaced
     paddingHorizontal:  20,
     paddingVertical: 10,
     width: "100%",

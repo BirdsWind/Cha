@@ -3,6 +3,9 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'r
 import ResponsiveImage from '@/components/sadouImage';
 import ProductGallery from '@/components/productGallery';
 import FooterSection from '@/components/footerSection';
+import useResponsive from '@/hooks/useResponsive';
+
+const { windowWidth } = useResponsive(); // Use the hook
 
 const MatchaAndSong = () => {
   return (
@@ -26,8 +29,8 @@ const MatchaAndSong = () => {
           <Text style={styles.sectionText}>
             Med sina rötter i det japanska tehusets stillhet och elegans är matcha-ceremonin en konstform som betonar mindfulness och närvaro. Vi guidar dig genom varje steg, från den subtila doften av matchapulver till den vibranta smaken av det perfekt vispade teet.
           </Text>
-          <ResponsiveImage imageSource={require('../assets/images/sadou.png') } />
         </View>
+        <ResponsiveImage imageSource={require('../assets/images/sadou.png') } />
       </View>
 
       {/* Song Dian Cha Section */}
@@ -37,8 +40,8 @@ const MatchaAndSong = () => {
           <Text style={styles.sectionText}>
             En historisk teceremoni från Songdynastin i Kina, där teets skönhet och hantverk hyllas. Här får du uppleva den traditionella metoden att vispa te till ett skummande mästerverk.
           </Text>
-          <ResponsiveImage imageSource={require('../assets/images/dianCha.png') } />
         </View>
+        <ResponsiveImage imageSource={require('../assets/images/dianCha.png') } />
       </View>
 
       {/* Call to Action */}
@@ -53,9 +56,7 @@ const MatchaAndSong = () => {
  
         {/* Product gallery Section */}
       <View style={styles.section}>
-        <View style={styles.textContainer}>
           <ProductGallery />
-        </View>
       </View>
          
         {/* Footer section */}
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   intro: {
-    padding: 20,
+    padding: 20, // The padding property in React Native applies to the space inside the View component, creating a buffer between the content (such as text or images) and the edges of the View. This means that the padding affects the content inside the View, not the View itself.
     backgroundColor: '#F8EDE3', // Ljus beige
   },
   introText: {
@@ -99,27 +100,27 @@ const styles = StyleSheet.create({
   section: {
     padding: 20,
     alignItems: 'center',
-  },
-  image: {
-    width: '90%',
-    height: 200,
-    borderRadius: 10,
-    marginBottom: 15,
+    width: '100%', // Forces consistency in width
   },
   textContainer: {
-    paddingHorizontal: 20,
+    width: windowWidth * 0.9, // Ensures text doesn't overflow
+    alignSelf: 'center', 
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#4A403A',
     marginBottom: 20,
+    textAlign: 'left',
+    width: '100%',
   },
   sectionText: {
     fontSize: 16,
     color: '#4A403A',
     lineHeight: 22,
     marginBottom: 20,
+    textAlign: 'left',
+    width: '100%',
   },
   cta: {
     padding: 20,
