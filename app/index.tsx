@@ -123,7 +123,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   cta: {
-    padding: 20,
     alignItems: 'center',
     backgroundColor: '#8FB996',
   },
