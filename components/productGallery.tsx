@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Image, Text, StyleSheet, Dimensions } from "react-native";
+import useResponsive from '@/hooks/useResponsive';
+
+const { isMobile, windowWidth } = useResponsive(); // Use the hook
 
 const PuEr = require('../assets/images/puer.png'); 
 const Matcha = require('../assets/images/matcha.png');
 const BaiCha = require('../assets/images/baicha.png'); 
 
-const windowWidth = Dimensions.get("window").width;
-const isMobile = windowWidth < 600; // Adjust breakpoint if needed
 
 const products = [
   { name: "Matcha", description: "Fint stenmalet grönt te. Djup umami och fyllig gräsighet.", image: Matcha },
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   image: {
-    width: isMobile ? windowWidth * 0.9 : (windowWidth - 80) / 3,
-    height: isMobile ? (windowWidth * 0.9) * (320 / 480) : ((windowWidth - 80) / 3) * (320 / 480),
+    width: isMobile ? windowWidth * 0.9 : (windowWidth * 0.9 - 40) / 3, // 40 is the total margin space, borderRadius: 10
+    height: isMobile ? (windowWidth * 0.9) * (320 / 480) : ((windowWidth * 0.9) / 3 - 40) * (320 / 480), // 480 is the original image width, 320 is the original image height
     borderRadius: 10,
   },
   textOverlay: {
